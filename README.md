@@ -67,24 +67,6 @@
    }
    ```
 
-#### 六.系统运行截图
-
-3-1 教师登录操作
-
-![43da0c3700fc3279e858024653cf246](https://gitee.com/ZhangYhan/Zyh1245/raw/master/43da0c3700fc3279e858024653cf246.png)
-
-3-2 学生登陆操作
-
-![df27eca529790ff443101eaa80584ea](https://gitee.com/ZhangYhan/Zyh1245/raw/master/df27eca529790ff443101eaa80584ea.png)
-
-3-3 学生选课与退课
-
-![ff6963ca36bf66eb7dd28d180cda48f](https://gitee.com/ZhangYhan/Zyh1245/raw/master/ff6963ca36bf66eb7dd28d180cda48f.png)
-
-3-4 学生课表输出
-
-![44d88131ee6b7b7ebf4ab2f1a0a9de4](https://gitee.com/ZhangYhan/Zyh1245/raw/master/44d88131ee6b7b7ebf4ab2f1a0a9de4.png)
-
 
 
 #### 七.感想与体会

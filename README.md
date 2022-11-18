@@ -32,7 +32,7 @@
 
 #### 流程图
 
-![输入图片说明](%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20211206000009.png)
+https://github.com/XQYX/-/blob/main/%E6%97%A0%E6%A0%87%E9%A2%98.png
 
 #### 关键代码
 
@@ -95,13 +95,6 @@ public class WorkStudyProgramTest {
         final double TaxReceivable1 = TaxReceivable;
         return TaxReceivable1;
     }
-```
-
-### 程序运行截图
-
-![输入图片说明](%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20211205233633.png)
-
-
 #### 感想与体会
 
 通过本次实验，让我对类这个知识点有了更深刻的理解和学习，同时，掌握staticfinal等修饰符的用法，和了解异常的使用方法，并在程序中根据输入情况做异常处理。根据多次的代码编写，也减少了代码冗余情况，使其更加明了简洁。最后这次试验对我之后的学习提供较大的帮助。

@@ -1,74 +1,107 @@
-#  实验三 继承关系
+# 实验四 学生实验室勤工俭学模拟
 
-#### 一.实验目的
+#### 实验目的
 
-1. 掌握权限访问控制修饰符的选用
-2. 掌握继承的使用
+- 掌握Java中类的定义；
+- 掌握staticfinal等修饰符的用法；
+- 了解异常的使用方法，并在程序中根据输入情况做异常处理。
 
-#### 二.业务要求
 
-1. 保持实验二的代码和readme版本不变
-2. 新建代码仓库，在实验二代码的基础上完成本次实验 3.业务过程同实验二，但在类的设计上，采用父类-子类的继承关系定义
-3. 测试实体类分别存放于不同的package中，验证权限访问控制，继承后属性及方法的可见性
+#### 实验内容
 
-#### 三.解题思路
+- 某学校为了给学生提供勤工俭学机会，选派了部分学生参与实验室的卫生清洁工作。每个学生被分配若干间实验室，视实验室的清洁打分情况给予劳务补贴。
+- 例如：学生“张三”负责了“计算机网络实验室”、“组成原理实验室”的清洁情况，每周被检查。在某次检查中，“计算机网络实验室”卫生得“优”，“组成原理实验室”卫生得“及格”，一次“优”按x元记录补助，一次“及格”按y元记录补助。（卫生标准分级、相应的等级补助标准，自行规定）
+- 按国家的税务制度，劳务费应按国家规定纳税，请统计一学期学生的实际收入。（国家最新工资纳税标准，请自行检索）。
 
-1. 以实验二的初始代码为基础，依旧设计模拟学生选课系统，先定义了四个类：Simulate（模拟选课系统），Main（课程course），Teacher，Student
-2. 在类的设计上，本次采用父类-子类继承关系。定义一个新的类命名为Fulei（父类），在Fulei中设定ID，姓名和性别三项。利用继承，在Teacher类和Student类使用“public class A extends B”，如此使父类的ID姓名性别可以在Teacher和Student上使用，完成父类-子类继承。
-3. 最终进行错误排除，修复问题，完成含有继承关系的改进的学生模拟选课系统。
-
-#### 四.流程图
-
-![6821p383c11cd522fc86e3239677d9d](https://gitee.com/ZhangYhan/Zyh1245/raw/master/6821p383c11cd522fc86e3239677d9d.png))
-
-#### 五.关键代码
-
-1. 通过extends关键字继承Fulei，使Teacher和Student类可以继承父类的ID，姓名，性别 
-
-   public class Student extends Fulei {
-
-   public class Teacher extends Fulei {
-
-2. 定义一个数组Main[]，用数组存储学生的课程 
-
-   String major；
-
-   Main [] stu_cour = new Main[5] ;
-
-3. 对选课函数进行细微修改
-
-   ```
-   void xuanke(int course_id, Main[] stu_c) {
-       //输入的课程号与课组里某门课的课号相等，则将该门课添加到学生的个人课程数组里
-       for (int a = 0; a < stu_c.length; a++) {
-           if (course_id == stu_c[a].id) {
-               for (int b = 0; b < stu_cour.length; b++) {
-                   if (stu_cour[0] == null) {
-                       stu_cour[i] = stu_c[a];
-                       i++;
-                       System.out.println("您已成功选上该课程！");
-                       break;
-                   }
-                   if (stu_cour[0] != null) {
-                       if (course_id == stu_cour[b].id) {
-                           System.out.println("重复选择，请重新操作！");
-                           break;
-                       } else {
-                           stu_cour[i] = stu_c[a];
-                           i++;
-                           System.out.println("您已成功选上该课程！");
-                           break;
-                       }
-                   }
-               }
-               break;
-           }
-       }
-   }
-   ```
+1. 设计系统中的类（如学生、实验室等等）；
+2. 一学期按18周计；
+3. 每个学生负责的实验室数量不一定相同；
+4. 对学期勤工俭学收入和纳税进行统计，求得实际收入；
+5. 国家最新纳税标准（系数），属于某一时期的特定固定值，与实例化对象没有关系，考虑如何用staticfinal修饰定义。
+6. 根据处理情况，要在程序中考虑做异常处理。
 
 
 
-#### 七.感想与体会
+#### 解决思路
 
-这次的实验是对我在上周的学生模拟系统的补丁加强，除了加入父类-子类继承以外，我还需要尝试能不能做得更好。首先我创建了一个父类，并且成功让Teacher类和Student类继承了父类的信息，在以后的实验中，我可以利用继承来更快地写出代码，多了一个思路，多了一份智慧。实验结束，我能更细心地检查代码的错误，学会了更加的细心，而且最大的收获就是：把之前不理解的知识找回来了。
+1. 定义学生、实验室和测试类，并创建属性和赋值； 
+
+2. 以字符串数组的形式创建实验室类实例对象以及学生类实例对象并赋值；
+
+3. 构造纳税的方法在测试类中，并在程序入口处调用方法，得出结果。
+
+#### 流程图
+
+![输入图片说明](%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20211206000009.png)
+
+#### 关键代码
+
+1.  18周评分税收
+
+```
+    public void WorkStudyIncome(String[] List1, Student studnt) {
+        try {
+            for (int t = 0; t < 18; t++) {
+                if (List1[t] == "优") {
+                    studnt.setmoneyEarned(200);
+                }
+                if (List1[t] == "及格") {
+                    studnt.setmoneyEarned(120);
+                }
+                if (List1[t] == "不及格") {
+                    studnt.setmoneyEarned(0);
+                }
+                if (List1[t] == "优" || List1[t] == "及格" || List1[t] == "不及格") {
+                    continue;
+                }
+                System.out.println("数据异常！");
+                break;
+            }
+        } catch (Exception e) {
+            System.out.println("数据异常！");
+        }
+    }
+```
+
+2.  纳税
+
+
+```
+public class WorkStudyProgramTest {
+    static double LatestNationalWageTaxStandard(double money) {
+        double TaxReceivable = 0;
+        try {
+            if (0 <= money && money <= 5000) {
+                TaxReceivable = 0;
+            }
+            if (5000 < money && money <= 8000) {
+                TaxReceivable = money * 0.03;
+            }
+            if (8000 < money && money <= 17000) {
+                TaxReceivable = money * 0.10;
+            }
+            if (17000 < money && money <= 30000) {
+                TaxReceivable = money * 0.20;
+            }
+            if (30000 < money && money <= 40000) {
+                TaxReceivable = money * 0.25;
+            }
+            if (TaxReceivable < 0) {
+                System.out.println("收入金额有误！");
+            }
+        } catch (Exception e) {
+            System.out.println("收入金额有误！");
+        }
+        final double TaxReceivable1 = TaxReceivable;
+        return TaxReceivable1;
+    }
+```
+
+### 程序运行截图
+
+![输入图片说明](%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20211205233633.png)
+
+
+#### 感想与体会
+
+通过本次实验，让我对类这个知识点有了更深刻的理解和学习，同时，掌握staticfinal等修饰符的用法，和了解异常的使用方法，并在程序中根据输入情况做异常处理。根据多次的代码编写，也减少了代码冗余情况，使其更加明了简洁。最后这次试验对我之后的学习提供较大的帮助。

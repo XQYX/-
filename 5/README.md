@@ -72,7 +72,7 @@ StringBuffer sb = new StringBuffer(str1);//先将String转换成StringBuffer格�
 
 
 2.  运行结果     
-![输入图片说明](12-06%20%201211313.png)
+https://github.com/XQYX/-/blob/main/5/5.png
 
 3.  实验感受    
 本实验还可添加报错系统，有待完善。
